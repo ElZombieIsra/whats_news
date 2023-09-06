@@ -7,7 +7,7 @@ part of 'source_model.dart';
 // **************************************************************************
 
 abstract class _$SourceModelCWProxy {
-  SourceModel id(String id);
+  SourceModel id(String? id);
 
   SourceModel name(String name);
 
@@ -45,7 +45,7 @@ class _$SourceModelCWProxyImpl implements _$SourceModelCWProxy {
   final SourceModel _value;
 
   @override
-  SourceModel id(String id) => this(id: id);
+  SourceModel id(String? id) => this(id: id);
 
   @override
   SourceModel name(String name) => this(name: name);
@@ -84,10 +84,10 @@ class _$SourceModelCWProxyImpl implements _$SourceModelCWProxy {
     Object? country = const $CopyWithPlaceholder(),
   }) {
     return SourceModel(
-      id: id == const $CopyWithPlaceholder() || id == null
+      id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
-          : id as String,
+          : id as String?,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -127,7 +127,7 @@ extension $SourceModelCopyWith on SourceModel {
 // **************************************************************************
 
 SourceModel _$SourceModelFromJson(Map<String, dynamic> json) => SourceModel(
-      id: json['id'] as String,
+      id: json['id'] as String?,
       name: json['name'] as String,
       description: json['description'] as String?,
       url: json['url'] as String?,

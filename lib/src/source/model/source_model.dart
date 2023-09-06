@@ -8,7 +8,7 @@ part 'source_model.g.dart';
 @JsonSerializable()
 class SourceModel extends Equatable {
   const SourceModel({
-    required this.id,
+    this.id,
     required this.name,
     this.description,
     this.url,
@@ -17,7 +17,7 @@ class SourceModel extends Equatable {
     this.country,
   });
 
-  final String id;
+  final String? id;
   final String name;
   final String? description;
   final String? url;
