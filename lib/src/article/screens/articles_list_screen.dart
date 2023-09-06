@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whats_news/src/article/components/article_list.dart';
 import 'package:whats_news/src/article/data/repositories/article_network_repository.dart';
 import 'package:whats_news/src/article/data/services/article_mock_service.dart';
 import 'package:whats_news/src/article/model/article_model.dart';
@@ -29,16 +30,9 @@ class _ArticlesListScreenState extends State<ArticlesListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Whats News 🗞️")),
       body: SafeArea(
-        child: articles.isNotEmpty
-            ? ListView.builder(
-                itemBuilder: (context, i) {
-                  final article = articles[i];
-                  return Text(article.title);
-                },
-                itemCount: articles.length,
-              )
-            : const Text("Nothing to show"),
+        child: ArticleList(articles: articles),
       ),
     );
   }
