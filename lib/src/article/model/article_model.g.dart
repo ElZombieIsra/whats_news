@@ -13,13 +13,13 @@ abstract class _$ArticleModelCWProxy {
 
   ArticleModel title(String title);
 
-  ArticleModel description(String description);
+  ArticleModel description(String? description);
 
-  ArticleModel url(String url);
+  ArticleModel url(String? url);
 
   ArticleModel urlToImage(String? urlToImage);
 
-  ArticleModel publishedAt(String publishedAt);
+  ArticleModel publishedAt(String? publishedAt);
 
   ArticleModel content(String? content);
 
@@ -57,17 +57,17 @@ class _$ArticleModelCWProxyImpl implements _$ArticleModelCWProxy {
   ArticleModel title(String title) => this(title: title);
 
   @override
-  ArticleModel description(String description) =>
+  ArticleModel description(String? description) =>
       this(description: description);
 
   @override
-  ArticleModel url(String url) => this(url: url);
+  ArticleModel url(String? url) => this(url: url);
 
   @override
   ArticleModel urlToImage(String? urlToImage) => this(urlToImage: urlToImage);
 
   @override
-  ArticleModel publishedAt(String publishedAt) =>
+  ArticleModel publishedAt(String? publishedAt) =>
       this(publishedAt: publishedAt);
 
   @override
@@ -104,24 +104,22 @@ class _$ArticleModelCWProxyImpl implements _$ArticleModelCWProxy {
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
           : title as String,
-      description:
-          description == const $CopyWithPlaceholder() || description == null
-              ? _value.description
-              // ignore: cast_nullable_to_non_nullable
-              : description as String,
-      url: url == const $CopyWithPlaceholder() || url == null
+      description: description == const $CopyWithPlaceholder()
+          ? _value.description
+          // ignore: cast_nullable_to_non_nullable
+          : description as String?,
+      url: url == const $CopyWithPlaceholder()
           ? _value.url
           // ignore: cast_nullable_to_non_nullable
-          : url as String,
+          : url as String?,
       urlToImage: urlToImage == const $CopyWithPlaceholder()
           ? _value.urlToImage
           // ignore: cast_nullable_to_non_nullable
           : urlToImage as String?,
-      publishedAt:
-          publishedAt == const $CopyWithPlaceholder() || publishedAt == null
-              ? _value.publishedAt
-              // ignore: cast_nullable_to_non_nullable
-              : publishedAt as String,
+      publishedAt: publishedAt == const $CopyWithPlaceholder()
+          ? _value.publishedAt
+          // ignore: cast_nullable_to_non_nullable
+          : publishedAt as String?,
       content: content == const $CopyWithPlaceholder()
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
@@ -144,10 +142,10 @@ ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) => ArticleModel(
       source: SourceModel.fromJson(json['source'] as Map<String, dynamic>),
       author: json['author'] as String?,
       title: json['title'] as String,
-      description: json['description'] as String,
-      url: json['url'] as String,
+      description: json['description'] as String?,
+      url: json['url'] as String?,
       urlToImage: json['urlToImage'] as String?,
-      publishedAt: json['publishedAt'] as String,
+      publishedAt: json['publishedAt'] as String?,
       content: json['content'] as String?,
     );
 

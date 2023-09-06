@@ -13,7 +13,9 @@ class ArticleListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(article.title, maxLines: 2),
-      subtitle: Text(article.description, maxLines: 2),
+      subtitle: article.description != null
+          ? Text(article.description!, maxLines: 2)
+          : null,
     );
   }
 }

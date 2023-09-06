@@ -12,20 +12,20 @@ class ArticleModel extends Equatable {
     required this.source,
     this.author,
     required this.title,
-    required this.description,
-    required this.url,
+    this.description,
+    this.url,
     this.urlToImage,
-    required this.publishedAt,
+    this.publishedAt,
     this.content,
   });
 
   final SourceModel source;
   final String? author;
   final String title;
-  final String description;
-  final String url;
+  final String? description;
+  final String? url;
   final String? urlToImage;
-  final String publishedAt;
+  final String? publishedAt;
   final String? content;
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) =>

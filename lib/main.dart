@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:whats_news/src/article/screens/articles_list_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future main() async {
+  await dotenv.load();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
