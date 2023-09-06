@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:whats_news/src/article/screens/articles_list_screen.dart';
+import 'package:whats_news/src/source/screens/source_list_screen.dart';
 
 Future main() async {
   await dotenv.load();
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ArticlesListScreen(),
+      home: const SourceListScreen(),
     );
   }
 }
