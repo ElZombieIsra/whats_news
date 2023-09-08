@@ -6,9 +6,13 @@ class SourceList extends StatelessWidget {
   const SourceList({
     super.key,
     required this.sources,
+    required this.selectedSources,
+    required this.onSelect,
   });
 
   final List<SourceModel> sources;
+  final Set<SourceModel> selectedSources;
+  final Function(SourceModel) onSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,16 @@ class SourceList extends StatelessWidget {
       );
     }
     return ListView.builder(
-      itemBuilder: (_, i) => SourceListTile(source: sources[i]),
+      itemBuilder: (_, i) {
+        final source = sources[i];
+        final isSelected = selectedSources.contains(source);
+
+        return SourceListTile(
+          source: source,
+          onSelect: onSelect,
+          isSelected: isSelected,
+        );
+      },
       itemCount: sources.length,
     );
   }
