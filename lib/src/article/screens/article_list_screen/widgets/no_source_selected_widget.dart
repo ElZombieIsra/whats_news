@@ -5,9 +5,13 @@ class NoSourceSelectedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "To start, select a source using the button in the upper right corner",
+    return const Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Center(
+        child: Text(
+          "To start, select a source using the button in the upper right corner",
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

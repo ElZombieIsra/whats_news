@@ -11,12 +11,20 @@ class ArticlesListScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final articleNotifier = ref.watch(articleListControllerProvider.notifier);
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Whats News 🗞️")),
+      appBar: AppBar(
+        title: const Text("Whats News 🗞️"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.list_rounded),
+            onPressed: () => articleNotifier.navigation.sources(context),
+          )
+        ],
+      ),
       body: SafeArea(
         child: Consumer(builder: (context, ref, child) {
-          final articleNotifier =
-              ref.watch(articleListControllerProvider.notifier);
           final state = ref.watch(articleListControllerProvider);
 
           if (state is ArticlesErrorState) {
