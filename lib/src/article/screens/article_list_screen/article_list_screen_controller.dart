@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:whats_news/src/article/data/repositories/article_network_repository.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/article_list_screen_state.dart';
@@ -30,12 +32,24 @@ class ArticleListController extends StateNotifier<ArticleListScreenState> {
   final ArticlesListScreenNavigation navigation;
   final Set<SourceModel> selectedSources;
 
+  Timer? refreshTimer;
+
   Future<void> fetch() async {
     if (selectedSources.isEmpty) {
       return;
     }
 
+    if (refreshTimer?.isActive ?? false) refreshTimer!.cancel();
+
     final articles = await _articleRepository.fetch(selectedSources.toList());
     state = ArticlesLoadedState(articles);
+
+    refreshTimer = Timer(const Duration(minutes: 2), fetch);
+  }
+
+  @override
+  void dispose() {
+    refreshTimer?.cancel();
+    super.dispose();
   }
 }

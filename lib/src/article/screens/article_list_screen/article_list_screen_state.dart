@@ -10,6 +10,8 @@ abstract class ArticleListScreenState extends Equatable {
 
 class NoSourceSelectedState extends ArticleListScreenState {}
 
+class ArticlesLoadingState extends ArticleListScreenState {}
+
 class ArticlesLoadedState extends ArticleListScreenState {
   const ArticlesLoadedState(this.articles);
 
