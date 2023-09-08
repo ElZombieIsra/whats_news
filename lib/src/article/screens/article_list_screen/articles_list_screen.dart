@@ -40,8 +40,10 @@ class ArticlesListScreen extends ConsumerWidget {
 
           if (state is ArticlesLoadedState) {
             return ArticleListScreenLoadedWidget(
-              onRefresh: articleNotifier.fetch,
               articles: state.articles ?? [],
+              onRefresh: articleNotifier.fetch,
+              onTap: (article) =>
+                  articleNotifier.navigation.detail(context, article),
             );
           }
 

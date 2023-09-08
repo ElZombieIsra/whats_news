@@ -5,9 +5,11 @@ class ArticleListTile extends StatelessWidget {
   const ArticleListTile({
     super.key,
     required this.article,
+    required this.onTap,
   });
 
   final ArticleModel article;
+  final void Function(ArticleModel) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class ArticleListTile extends StatelessWidget {
       subtitle: article.description != null
           ? Text(article.description!, maxLines: 2)
           : null,
+      onTap: () => onTap(article),
     );
   }
 }

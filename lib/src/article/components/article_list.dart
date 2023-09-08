@@ -6,9 +6,11 @@ class ArticleList extends StatelessWidget {
   const ArticleList({
     super.key,
     required this.articles,
+    required this.onTap,
   });
 
   final List<ArticleModel> articles;
+  final void Function(ArticleModel) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,10 @@ class ArticleList extends StatelessWidget {
       );
     }
     return ListView.builder(
-      itemBuilder: (_, i) => ArticleListTile(article: articles[i]),
+      itemBuilder: (_, i) => ArticleListTile(
+        article: articles[i],
+        onTap: onTap,
+      ),
       itemCount: articles.length,
     );
   }
