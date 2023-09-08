@@ -5,10 +5,14 @@ class ArticleListTile extends StatelessWidget {
   const ArticleListTile({
     super.key,
     required this.article,
+    this.isFavorite = false,
+    required this.onFavorite,
     required this.onTap,
   });
 
   final ArticleModel article;
+  final bool isFavorite;
+  final void Function(ArticleModel) onFavorite;
   final void Function(ArticleModel) onTap;
 
   @override
@@ -18,6 +22,10 @@ class ArticleListTile extends StatelessWidget {
       subtitle: article.description != null
           ? Text(article.description!, maxLines: 2)
           : null,
+      trailing: IconButton(
+        icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+        onPressed: () => onFavorite(article),
+      ),
       onTap: () => onTap(article),
     );
   }

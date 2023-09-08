@@ -11,6 +11,7 @@ final articleListControllerProvider = StateNotifierProvider.family<
   (ref, selectedSources) {
     final articleRepository = ref.watch(articleNetworkRepositoryProvider);
     final articleNavigation = ref.watch(articlesListScreenNavigationProvider);
+
     return ArticleListController(
       articleRepository,
       navigation: articleNavigation,
