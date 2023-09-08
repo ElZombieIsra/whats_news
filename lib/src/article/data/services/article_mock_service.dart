@@ -1,5 +1,6 @@
 import 'package:whats_news/src/article/data/services/article_service.dart';
 import 'package:whats_news/src/article/model/article_model.dart';
+import 'package:whats_news/src/source/model/source_model.dart';
 
 final articlesJson = [
   {
@@ -61,7 +62,7 @@ final articlesJson = [
 
 class ArticleMockService implements ArticleService {
   @override
-  Future<List<ArticleModel>> fetch() async {
+  Future<List<ArticleModel>> fetch(List<SourceModel> sources) async {
     final articles =
         articlesJson.map((json) => ArticleModel.fromJson(json)).toList();
     return articles;

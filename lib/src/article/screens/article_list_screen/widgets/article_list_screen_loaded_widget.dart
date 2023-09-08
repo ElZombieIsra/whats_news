@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:whats_news/src/article/components/article_list.dart';
 import 'package:whats_news/src/article/model/article_model.dart';
 
-class ArticlesLoadedWidget extends StatelessWidget {
-  const ArticlesLoadedWidget({
+class ArticleListScreenLoadedWidget extends StatelessWidget {
+  const ArticleListScreenLoadedWidget({
     Key? key,
     required this.onRefresh,
     required this.articles,

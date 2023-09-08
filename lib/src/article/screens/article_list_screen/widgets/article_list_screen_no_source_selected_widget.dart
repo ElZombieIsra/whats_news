@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NoSourceSelectedWidget extends StatelessWidget {
-  const NoSourceSelectedWidget({Key? key}) : super(key: key);
+class ArticleListScreenNoSourceSelectedWidget extends StatelessWidget {
+  const ArticleListScreenNoSourceSelectedWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
