@@ -1,16 +1,16 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:whats_news/src/http_client.dart';
-import 'package:whats_news/src/source/data/services/source_service.dart';
+import 'package:whats_news/src/source/data/repositories/source_repository.dart';
 import 'package:whats_news/src/source/model/source_model.dart';
 import 'package:dio/dio.dart';
 
-final sourceNetworkServiceProvider = Provider<SourceService>((ref) {
+final sourceNetworkRepositoryProvider = Provider<SourceRepository>((ref) {
   final httpClient = ref.watch(authenticatedHttpClientProvider);
-  return SourceNetworkService(httpClient);
+  return SourceNetworkRepository(httpClient);
 });
 
-class SourceNetworkService implements SourceService {
-  SourceNetworkService(this._httpClient);
+class SourceNetworkRepository implements SourceRepository {
+  SourceNetworkRepository(this._httpClient);
 
   final Dio _httpClient;
 
