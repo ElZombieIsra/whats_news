@@ -1,4 +1,4 @@
-import 'package:whats_news/src/article/data/services/article_service.dart';
+import 'package:whats_news/src/article/data/repositories/article_repository.dart';
 import 'package:whats_news/src/article/model/article_model.dart';
 import 'package:whats_news/src/source/model/source_model.dart';
 
@@ -60,7 +60,7 @@ final articlesJson = [
   }
 ];
 
-class ArticleMockService implements ArticleService {
+class ArticleMockRepository implements ArticleRepository {
   @override
   Future<List<ArticleModel>> fetch(List<SourceModel> sources) async {
     final articles =

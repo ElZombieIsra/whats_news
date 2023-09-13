@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:whats_news/src/article/data/repositories/article_network_repository.dart';
+import 'package:whats_news/src/article/data/services/article_service.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/article_list_screen_state.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/articles_list_screen_navigation.dart';
 import 'package:whats_news/src/source/model/source_model.dart';
@@ -9,11 +9,11 @@ import 'package:whats_news/src/source/model/source_model.dart';
 final articleListControllerProvider = StateNotifierProvider.family<
     ArticleListController, ArticleListScreenState, Set<SourceModel>>(
   (ref, selectedSources) {
-    final articleRepository = ref.watch(articleNetworkRepositoryProvider);
+    final articleService = ref.watch(articleServiceProvider);
     final articleNavigation = ref.watch(articlesListScreenNavigationProvider);
 
     return ArticleListController(
-      articleRepository,
+      articleService,
       navigation: articleNavigation,
       selectedSources: selectedSources,
     );
@@ -29,7 +29,7 @@ class ArticleListController extends StateNotifier<ArticleListScreenState> {
     fetch();
   }
 
-  final ArticleNetworkRepository _articleRepository;
+  final ArticleNetworkService _articleRepository;
   final ArticlesListScreenNavigation navigation;
   final Set<SourceModel> selectedSources;
 
