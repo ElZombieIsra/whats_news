@@ -1,16 +1,13 @@
-# whats_news
+# Whats news
 
-A new Flutter project.
+A simple application to read worldwide news
 
-## Getting Started
+## How to run
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the repo `git clone https://github.com/ElZombieIsra/whats_news.git`
+2. Rename the file `.env.template` to `.env`
+3. Paste your API Key for [newsapi.org](https://newsapi.org) on the file `.env`
+4. Install the correct version of Flutter to run the app
+   1. Install fvm [fvm](https://fvm.app/) and run `fmv install` in the project folder or
+   2. Install flutter version `3.13.2`
+5. Run the app using `flutter run`
