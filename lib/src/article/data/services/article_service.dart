@@ -35,4 +35,15 @@ class ArticleNetworkService {
         .toList();
     return allArticles;
   }
+
+  Future<ArticleModel> favorite(ArticleModel article) async {
+    final isFavorite = article.isFavorite;
+    if (isFavorite) {
+      _articleFavoriteRepository.remove(article);
+    } else {
+      _articleFavoriteRepository.add(article);
+    }
+    final updatedArticle = article.copyWith(isFavorite: !isFavorite);
+    return updatedArticle;
+  }
 }

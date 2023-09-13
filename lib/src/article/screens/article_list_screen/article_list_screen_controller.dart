@@ -23,14 +23,14 @@ final articleListControllerProvider = StateNotifierProvider.family<
 
 class ArticleListController extends StateNotifier<ArticleListScreenState> {
   ArticleListController(
-    this._articleRepository, {
+    this._articleService, {
     required this.navigation,
     required this.selectedSources,
   }) : super(NoSourceSelectedState()) {
     fetch();
   }
 
-  final ArticleNetworkService _articleRepository;
+  final ArticleNetworkService _articleService;
   final ArticlesListScreenNavigation navigation;
   final Set<SourceModel> selectedSources;
 
@@ -43,13 +43,16 @@ class ArticleListController extends StateNotifier<ArticleListScreenState> {
 
     if (refreshTimer?.isActive ?? false) refreshTimer!.cancel();
 
-    final articles = await _articleRepository.fetch(selectedSources.toList());
+    final articles = await _articleService.fetch(selectedSources.toList());
     state = ArticlesLoadedState(articles);
 
     refreshTimer = Timer(const Duration(minutes: 2), fetch);
   }
 
-  void favorite(ArticleModel article) async {}
+  void favorite(ArticleModel article) async {
+    await _articleService.favorite(article);
+    await fetch();
+  }
 
   @override
   void dispose() {

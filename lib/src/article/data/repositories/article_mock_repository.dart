@@ -67,4 +67,16 @@ class ArticleMockRepository implements ArticleRepository {
         articlesJson.map((json) => ArticleModel.fromJson(json)).toList();
     return articles;
   }
+
+  @override
+  Future<ArticleModel> add(ArticleModel article) {
+    // TODO: implement add
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ArticleModel> remove(ArticleModel article) {
+    // TODO: implement remove
+    throw UnimplementedError();
+  }
 }

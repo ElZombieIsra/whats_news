@@ -35,4 +35,16 @@ class ArticleNetworkRepository implements ArticleRepository {
     }
     return articles;
   }
+
+  @override
+  Future<ArticleModel> add(ArticleModel article) {
+    // TODO: implement add
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ArticleModel> remove(ArticleModel article) {
+    // TODO: implement remove
+    throw UnimplementedError();
+  }
 }
