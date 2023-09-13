@@ -23,6 +23,8 @@ abstract class _$ArticleModelCWProxy {
 
   ArticleModel content(String? content);
 
+  ArticleModel isFavorite(bool isFavorite);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ArticleModel(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -38,6 +40,7 @@ abstract class _$ArticleModelCWProxy {
     String? urlToImage,
     String? publishedAt,
     String? content,
+    bool? isFavorite,
   });
 }
 
@@ -74,6 +77,9 @@ class _$ArticleModelCWProxyImpl implements _$ArticleModelCWProxy {
   ArticleModel content(String? content) => this(content: content);
 
   @override
+  ArticleModel isFavorite(bool isFavorite) => this(isFavorite: isFavorite);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ArticleModel(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -90,6 +96,7 @@ class _$ArticleModelCWProxyImpl implements _$ArticleModelCWProxy {
     Object? urlToImage = const $CopyWithPlaceholder(),
     Object? publishedAt = const $CopyWithPlaceholder(),
     Object? content = const $CopyWithPlaceholder(),
+    Object? isFavorite = const $CopyWithPlaceholder(),
   }) {
     return ArticleModel(
       source: source == const $CopyWithPlaceholder() || source == null
@@ -124,6 +131,11 @@ class _$ArticleModelCWProxyImpl implements _$ArticleModelCWProxy {
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
           : content as String?,
+      isFavorite:
+          isFavorite == const $CopyWithPlaceholder() || isFavorite == null
+              ? _value.isFavorite
+              // ignore: cast_nullable_to_non_nullable
+              : isFavorite as bool,
     );
   }
 }
@@ -147,6 +159,7 @@ ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) => ArticleModel(
       urlToImage: json['urlToImage'] as String?,
       publishedAt: json['publishedAt'] as String?,
       content: json['content'] as String?,
+      isFavorite: json['isFavorite'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$ArticleModelToJson(ArticleModel instance) =>
@@ -159,4 +172,5 @@ Map<String, dynamic> _$ArticleModelToJson(ArticleModel instance) =>
       'urlToImage': instance.urlToImage,
       'publishedAt': instance.publishedAt,
       'content': instance.content,
+      'isFavorite': instance.isFavorite,
     };

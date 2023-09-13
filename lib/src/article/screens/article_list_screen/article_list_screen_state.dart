@@ -15,7 +15,7 @@ class ArticlesLoadingState extends ArticleListScreenState {}
 class ArticlesLoadedState extends ArticleListScreenState {
   const ArticlesLoadedState(this.articles);
 
-  final List<ArticleModel>? articles;
+  final List<ArticleModel> articles;
 
   @override
   List<Object?> get props => [articles];

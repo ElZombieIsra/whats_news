@@ -6,14 +6,12 @@ class ArticleListScreenLoadedWidget extends StatelessWidget {
   const ArticleListScreenLoadedWidget({
     Key? key,
     required this.articles,
-    required this.favoriteArticles,
     required this.onRefresh,
     required this.onTap,
     required this.onFavorite,
   }) : super(key: key);
 
   final List<ArticleModel> articles;
-  final Set<ArticleModel> favoriteArticles;
   final Future<void> Function() onRefresh;
   final void Function(ArticleModel) onTap;
   final void Function(ArticleModel) onFavorite;
@@ -24,7 +22,6 @@ class ArticleListScreenLoadedWidget extends StatelessWidget {
       onRefresh: onRefresh,
       child: ArticleList(
         articles: articles,
-        favoriteArticles: favoriteArticles,
         onTap: onTap,
         onFavorite: onFavorite,
       ),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:whats_news/src/article/data/services/article_service.dart';
+import 'package:whats_news/src/article/model/article_model.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/article_list_screen_state.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/articles_list_screen_navigation.dart';
 import 'package:whats_news/src/source/model/source_model.dart';
@@ -47,6 +48,8 @@ class ArticleListController extends StateNotifier<ArticleListScreenState> {
 
     refreshTimer = Timer(const Duration(minutes: 2), fetch);
   }
+
+  void favorite(ArticleModel article) async {}
 
   @override
   void dispose() {

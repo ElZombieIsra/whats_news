@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:whats_news/src/article/providers/favorite_articles_provider.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/article_list_screen_controller.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/article_list_screen_state.dart';
 import 'package:whats_news/src/article/screens/article_list_screen/widgets/article_list_screen_loaded_widget.dart';
@@ -40,15 +39,12 @@ class ArticlesListScreen extends ConsumerWidget {
           }
 
           if (state is ArticlesLoadedState) {
-            final favoriteArticles = ref.watch(favoriteArticlesProvider);
             return ArticleListScreenLoadedWidget(
-              articles: state.articles ?? [],
-              favoriteArticles: favoriteArticles,
+              articles: state.articles,
               onRefresh: articleNotifier.fetch,
               onTap: (article) =>
                   articleNotifier.navigation.detail(context, article),
-              onFavorite: (article) =>
-                  ref.read(favoriteArticlesProvider.notifier).favorite(article),
+              onFavorite: articleNotifier.favorite,
             );
           }
 

@@ -17,6 +17,7 @@ class ArticleModel extends Equatable {
     this.urlToImage,
     this.publishedAt,
     this.content,
+    this.isFavorite = false,
   });
 
   final SourceModel source;
@@ -27,6 +28,8 @@ class ArticleModel extends Equatable {
   final String? urlToImage;
   final String? publishedAt;
   final String? content;
+
+  final bool isFavorite;
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) =>
       _$ArticleModelFromJson(json);
