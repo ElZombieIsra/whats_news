@@ -5,9 +5,10 @@ A simple application to read worldwide news
 ## Pre-requisites
 
 1. Install the correct version of Flutter to run the app
-   1. Install fvm [fvm](https://fvm.app/) and run `fmv install` in the project folder or
+   1. Install [fvm](https://fvm.app/) and run `fmv install` in the project folder or
    2. Install flutter version `3.13.2`
-2. Run `flutter doctor` to confirmed everything it's installed correctly
+2. Run `flutter doctor` to confirm everything it's installed correctly
+3. Run `flutter packages get` to install the project dependencies
 
 ## How to run
 
