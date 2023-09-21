@@ -45,5 +45,6 @@ class ArticleModel extends Equatable {
         urlToImage,
         publishedAt,
         content,
+        isFavorite,
       ];
 }
