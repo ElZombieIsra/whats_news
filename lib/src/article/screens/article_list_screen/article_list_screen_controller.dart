@@ -26,13 +26,15 @@ class ArticleListController extends StateNotifier<ArticleListScreenState> {
     this._articleService, {
     required this.navigation,
     required this.selectedSources,
-  }) : super(NoSourceSelectedState()) {
+    this.timerDuration = const Duration(minutes: 2),
+  }) : super(const NoSourceSelectedState()) {
     fetch();
   }
 
   final ArticleNetworkService _articleService;
   final ArticlesListScreenNavigation navigation;
   final Set<SourceModel> selectedSources;
+  final Duration timerDuration;
 
   Timer? refreshTimer;
 
@@ -43,13 +45,17 @@ class ArticleListController extends StateNotifier<ArticleListScreenState> {
 
     if (refreshTimer?.isActive ?? false) refreshTimer!.cancel();
 
-    final articles = await _articleService.fetch(selectedSources.toList());
-    state = ArticlesLoadedState(articles);
-
-    refreshTimer = Timer(const Duration(minutes: 2), fetch);
+    try {
+      final articles = await _articleService.fetch(selectedSources.toList());
+      state = ArticlesLoadedState(articles);
+    } catch (e) {
+      state = ArticlesErrorState(e.toString());
+    } finally {
+      refreshTimer = Timer(timerDuration, fetch);
+    }
   }
 
-  void favorite(ArticleModel article) async {
+  Future<void> favorite(ArticleModel article) async {
     await _articleService.favorite(article);
     await fetch();
   }

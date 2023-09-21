@@ -8,9 +8,13 @@ abstract class ArticleListScreenState extends Equatable {
   List<Object?> get props => [];
 }
 
-class NoSourceSelectedState extends ArticleListScreenState {}
+class NoSourceSelectedState extends ArticleListScreenState {
+  const NoSourceSelectedState();
+}
 
-class ArticlesLoadingState extends ArticleListScreenState {}
+class ArticlesLoadingState extends ArticleListScreenState {
+  const ArticlesLoadingState();
+}
 
 class ArticlesLoadedState extends ArticleListScreenState {
   const ArticlesLoadedState(this.articles);
