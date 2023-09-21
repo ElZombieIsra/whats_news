@@ -43,6 +43,11 @@ class ArticleFavoriteDataSource {
     return article;
   }
 
+  bool has(ArticleModel article) {
+    final contains = _box.containsKey(article.title);
+    return contains;
+  }
+
   void dispose() {
     _box.close();
   }

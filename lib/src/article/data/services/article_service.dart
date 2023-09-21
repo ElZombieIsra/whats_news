@@ -37,7 +37,7 @@ class ArticleNetworkService {
   }
 
   Future<ArticleModel> favorite(ArticleModel article) async {
-    final isFavorite = article.isFavorite;
+    final isFavorite = await _articleFavoriteRepository.has(article);
     if (isFavorite) {
       _articleFavoriteRepository.remove(article);
     } else {

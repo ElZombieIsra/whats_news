@@ -32,4 +32,10 @@ class ArticleFavoriteRepository implements ArticleRepository {
     final removedArticle = _dataSource.remove(article);
     return removedArticle;
   }
+
+  @override
+  Future<bool> has(ArticleModel article) async {
+    final existingArticle = _dataSource.has(article);
+    return existingArticle;
+  }
 }

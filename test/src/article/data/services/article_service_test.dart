@@ -63,6 +63,7 @@ void main() {
   test("should add article to favorites", () async {
     final favoriteArticle = articlesMockModels[0];
 
+    when(() => favoriteRepository.has(any())).thenAnswer((_) async => false);
     when(() => favoriteRepository.add(any()))
         .thenAnswer((invocation) async => invocation.positionalArguments[0]);
 
@@ -70,12 +71,14 @@ void main() {
 
     expect(article, isNot(equals(favoriteArticle)));
     expect(article, equals(favoriteArticle.copyWith(isFavorite: true)));
+    verify(() => favoriteRepository.has(favoriteArticle)).called(1);
     verify(() => favoriteRepository.add(favoriteArticle)).called(1);
   });
 
   test("should remove article from favorites", () async {
     final favoriteArticle = articlesMockModels[0].copyWith(isFavorite: true);
 
+    when(() => favoriteRepository.has(any())).thenAnswer((_) async => true);
     when(() => favoriteRepository.remove(any()))
         .thenAnswer((invocation) async => invocation.positionalArguments[0]);
 
@@ -83,6 +86,7 @@ void main() {
 
     expect(article, isNot(equals(favoriteArticle)));
     expect(article, equals(favoriteArticle.copyWith(isFavorite: false)));
+    verify(() => favoriteRepository.has(favoriteArticle)).called(1);
     verify(() => favoriteRepository.remove(favoriteArticle)).called(1);
   });
 }

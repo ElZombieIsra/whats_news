@@ -57,4 +57,14 @@ void main() {
     verify(() => dataSource.remove(any())).called(1);
     expect(favoriteArticle, equals(articleToRemove));
   });
+
+  test('should verify article exists in data source', () async {
+    const exists = true;
+    when(() => dataSource.has(any())).thenReturn(exists);
+
+    final hasArticle = await repository.has(articlesMockModels[0]);
+
+    verify(() => dataSource.has(any())).called(1);
+    expect(hasArticle, equals(exists));
+  });
 }

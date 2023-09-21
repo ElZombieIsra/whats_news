@@ -7,4 +7,6 @@ abstract class ArticleRepository {
   Future<ArticleModel> add(ArticleModel article);
 
   Future<ArticleModel> remove(ArticleModel article);
+
+  Future<bool> has(ArticleModel article);
 }

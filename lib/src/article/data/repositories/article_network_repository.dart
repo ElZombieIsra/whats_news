@@ -52,4 +52,10 @@ class ArticleNetworkRepository implements ArticleRepository {
     // TODO: implement remove
     throw UnimplementedError();
   }
+
+  @override
+  Future<bool> has(ArticleModel article) {
+    // TODO: implement exists
+    throw UnimplementedError();
+  }
 }
