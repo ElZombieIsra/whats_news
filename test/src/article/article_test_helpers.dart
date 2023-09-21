@@ -1,3 +1,5 @@
+import 'package:whats_news/src/article/model/article_model.dart';
+
 const mockArticlesJson = [
   {
     "source": {"id": "axios", "name": "Axios"},
@@ -27,3 +29,5 @@ const mockArticlesJson = [
         "By Dianna Russini, Jourdan Rodrigue, Alec Lewis and Brandon Funston\r\nThe Los Angeles Rams agreed to trade running back Cam Akers and a conditional 2026 seventh-round pick to the Minnesota Vikings for… [+4045 chars]"
   },
 ];
+
+final articlesMockModels = mockArticlesJson.map(ArticleModel.fromJson).toList();
