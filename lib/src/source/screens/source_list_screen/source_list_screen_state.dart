@@ -17,7 +17,9 @@ class SourcesErrorState extends SourceListScreenState {
   List<Object?> get props => [error];
 }
 
-class SourcesLoadingState extends SourceListScreenState {}
+class SourcesLoadingState extends SourceListScreenState {
+  const SourcesLoadingState();
+}
 
 class SourcesLoadedState extends SourceListScreenState {
   const SourcesLoadedState(this.sources);

@@ -9,14 +9,15 @@ final sourceListControllerProvider =
 });
 
 class SourceListController extends StateNotifier<SourceListScreenState> {
-  SourceListController(this._sourceService) : super(SourcesLoadingState()) {
+  SourceListController(this._sourceService)
+      : super(const SourcesLoadingState()) {
     fetch();
   }
 
   final SourceService _sourceService;
 
   Future<void> fetch() async {
-    state = SourcesLoadingState();
+    state = const SourcesLoadingState();
     try {
       final sources = await _sourceService.fetch();
       state = SourcesLoadedState(sources);
