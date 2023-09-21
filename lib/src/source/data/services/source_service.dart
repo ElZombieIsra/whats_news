@@ -9,11 +9,11 @@ final sourceServiceProvider = Provider<SourceService>((ref) {
 });
 
 class SourceService {
-  const SourceService(this._sourceService);
+  const SourceService(this._sourceRepository);
 
-  final SourceRepository _sourceService;
+  final SourceRepository _sourceRepository;
 
   Future<List<SourceModel>> fetch() {
-    return _sourceService.fetch();
+    return _sourceRepository.fetch();
   }
 }
