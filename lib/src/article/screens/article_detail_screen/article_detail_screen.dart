@@ -27,8 +27,8 @@ class ArticleDetailScreen extends StatelessWidget {
           style: const TextStyle(fontSize: 20),
         ),
       const SizedBox(height: 8),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Author: ${article.author ?? ""}',
