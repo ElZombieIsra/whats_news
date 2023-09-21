@@ -23,8 +23,12 @@ class SourceNetworkRepository implements SourceRepository {
       throw Exception('No data was found');
     }
     for (final json in rs.data['sources']) {
-      final article = SourceModel.fromJson(json);
-      sources.add(article);
+      try {
+        final article = SourceModel.fromJson(json);
+        sources.add(article);
+      } catch (e) {
+        throw Exception('Could not parse source model');
+      }
     }
     return sources;
   }

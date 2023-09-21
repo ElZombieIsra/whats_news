@@ -24,14 +24,19 @@ class ArticleNetworkRepository implements ArticleRepository {
         "sources": sourcesStr,
       },
     );
-    final List<ArticleModel> articles = [];
     final data = rs.data;
     if (data['status'] != 'ok') {
       throw Exception('No data was found');
     }
+
+    final List<ArticleModel> articles = [];
     for (final json in rs.data['articles']) {
-      final article = ArticleModel.fromJson(json);
-      articles.add(article);
+      try {
+        final article = ArticleModel.fromJson(json);
+        articles.add(article);
+      } catch (e) {
+        throw Exception("Could not parse article model");
+      }
     }
     return articles;
   }
